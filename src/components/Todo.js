@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Todo() {
+function Todo({ todo }) {
   return (
     <div data-testid="todo-1">Todo</div>
   )
