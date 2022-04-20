@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Button() {
+    const [showAnotherButton, setShowAnotherButton] = useState(false);
   return (
-    <div>Button</div>
+    <div>
+        <button
+            data-testid="button"
+            onClick={() => {
+                setShowAnotherButton(true);
+            }}
+        >
+            Click Here
+        </button>
+        {showAnotherButton && (
+            <button data-testid="button">Click Here</button>
+        )}
+    </div>
   )
 }
 
