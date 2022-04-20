@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
 import Input from "../Input";
 
 describe("Input Component", () => {
@@ -21,4 +22,13 @@ describe("Input Component", () => {
         expect(divDivvy).not.toBeInTheDocument();
     });
 
+
+    it("change on input causes chage on header", async () => {
+        render(<Input showDiv={false}/>)
+        const searchBar = screen.getByTestId("searchBar");
+        const inputWord = "SpaceX"
+        const header = screen.getByTestId("displaySearch");
+        await fireEvent.change(searchBar, {target: {value: inputWord}})
+        expect(header.innerHTML).toBe(inputWord);
+    });
 });
