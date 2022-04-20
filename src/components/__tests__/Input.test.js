@@ -9,4 +9,16 @@ describe("Input Component", () => {
         expect(searchBar).toBeInTheDocument();
     })
 
+    it("render div", () => {
+        render(<Input showDiv={true}/>)
+        const divvyDiv = screen.getByTestId("divWeWantToShow")
+        expect(divvyDiv).toBeInTheDocument();
+    });
+
+    it("don't render div", () => {
+        render(<Input showDiv={false}/>)
+        const divDivvy = screen.queryByTestId("divWeWantToShow")
+        expect(divDivvy).not.toBeInTheDocument();
+    });
+
 });
