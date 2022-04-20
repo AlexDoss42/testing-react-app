@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import Input from "../Input";
 
 describe("Input Component", () => {
@@ -8,7 +7,7 @@ describe("Input Component", () => {
         render(<Input showDiv={false}/>)
         const searchBar = screen.getByTestId("searchBar");
         expect(searchBar).toBeInTheDocument();
-    })
+    });
 
     it("render div", () => {
         render(<Input showDiv={true}/>)
